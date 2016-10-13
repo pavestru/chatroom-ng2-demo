@@ -1,5 +1,5 @@
 {
-  "name": "chatroom-ng2-rxjs-demo",
+  "name": "chatroom-ng2-demo",
   "version": "1.0.0",
   "description": "Demo for Angular2 + RxJS",
   "main": "index.js",
@@ -41,5 +41,13 @@
     "typings": "^1.4.0"
   },
   "author": "Pavel Struhar",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavestru/chatroom-ng2-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pavestru/chatroom-ng2-demo/issues"
+  },
+  "homepage": "https://github.com/pavestru/chatroom-ng2-demo#readme"
 }
