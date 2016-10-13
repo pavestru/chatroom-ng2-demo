@@ -14,6 +14,7 @@ h1 {
   margin-bottom: 0.5rem;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 5rem;
+  text-align: center;
 }
 
 div#main {
@@ -30,6 +31,10 @@ div#main {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+div#main.intro {
+  justify-content: space-around;
 }
 
 div.fixed {
@@ -53,7 +58,7 @@ div#new-message {
   display: flex;
 }
 
-div#new-message input {
+input {
   box-sizing: border-box;
   height: 4rem;
   padding: 0.2rem;
@@ -63,7 +68,38 @@ div#new-message input {
   flex-grow: 5;
 }
 
-div#new-message button {
+button {
+  height: 4rem;
   display: block;
   flex-grow: 1;
+}
+
+.msg {
+  margin-right: 30%;
+  margin-bottom: 0.5rem;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  border-top-left-radius: 0;
+  background-color: lightgrey;
+}
+
+.msg .username {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 0.5px dotted;
+}
+
+.msg .time {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.msg.own {
+  margin-left: 30%;
+  margin-right: 0;
+  border-radius: 1rem;
+  border-bottom-right-radius: 0;
+  background-color: darkcyan;
+  color: white;
+  text-align: right;
 }

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ThreadComponent } from './thread.component';
+import { ChatroomComponent } from './chatroom.component';
 
 @Component({
   selector: 'my-app',
   template: `
-    <thread></thread>
+    <chatroom></chatroom>
   `
 })
 export class AppComponent { }

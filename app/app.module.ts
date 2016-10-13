@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './components/app.component';
 import { FormsModule }   from '@angular/forms';
 
-import { ThreadComponent } from './components/thread.component';
+import { ChatroomComponent } from './components/chatroom.component';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import { ThreadComponent } from './components/thread.component';
   ],
   declarations: [
     AppComponent,
-    ThreadComponent
+    ChatroomComponent
   ],
   bootstrap: [ AppComponent ]
 })

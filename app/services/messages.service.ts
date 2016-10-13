@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { Message } from './models';
 import { MESSAGES } from './messages.mock';
 
+let initialMessages: Message[] = MESSAGES;
+
 @Injectable()
 export class MessageService {
     messages: Message[];
 
     constructor() {
-        this.messages = MESSAGES;
+        this.messages = initialMessages;
     }
 
     getMessages(): Message[] {
