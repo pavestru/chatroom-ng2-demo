@@ -1,4 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 import { Message, User } from '../services/models';
 import { MessageService } from '../services/messages.service';
 
@@ -22,9 +23,9 @@ import { MessageService } from '../services/messages.service';
       <div class="fixed">
         <h1>Chatroom</h1>
       </div>
-      <div class="fixed">Number of messages: <strong>{{ getLength() }}</strong></div>
+      <div class="fixed">Number of messages: <strong>{{ msgCount }}</strong></div>
       <div id="message-list">
-        <div [class.own]="message.username === user.name" class="msg" *ngFor="let message of messages">
+        <div [class.own]="message.username === user.name" class="msg" *ngFor="let message of messages | async">
           <div class="username">{{ message.username }}</div>
           <div class="text">{{ message.text }}</div>
           <div class="time">{{ message.sentAt | date:"MMM d yyyy, HH:mm:ss" }}</div>
@@ -41,8 +42,10 @@ import { MessageService } from '../services/messages.service';
   `
 })
 export class ChatroomComponent {
-  messages: Message[];
+  messages: Observable<Message[]>;
   draftMessage: Message;
+
+  msgCount: number = 0;
 
   user: User;
   draftUsername: string;
@@ -61,14 +64,17 @@ export class ChatroomComponent {
     this.user = {
       name: ''
     };
-  }
 
-  getLength() : number {
-    if (Array.isArray(this.messages)) {
-      return this.messages.length;
-    } else {
-      return 0;
-    }
+    this.messages
+      .subscribe(
+        (messages: Array<Message>) => {
+          if (this.user.name !== '') {
+            setTimeout(() => {
+              this.scrollToBottom();
+            });
+          }
+          this.msgCount = messages.length;
+        });    
   }
 
   onEnter(event: any): void {
